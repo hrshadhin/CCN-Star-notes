@@ -1,0 +1,51 @@
+ CCENT Note
+=============
+
+Cisco Certification stages
+
+www.cisco.com/certification
+www.vue.com
+ 
+1.CCENT
+2.CCNA
+  2.1 CCVP
+	2.1.1 CCIE Voice
+  2.2 CCNP
+	2.2.1 CCIE Route+Switch
+  2.3 CCSP
+	2.3.1 CCIE SEcurity
+	
+
+
+CCENT is the introduction to networking.
+Its about Operation of data networks,swithed network,ip addessing and servicess, small routed network,WAN,Basic network security.
+
+
+What is a Network?
+   A collection of devices that can communicate together.
+
+Network Topologis:
+
+ 	#Bus
+	#Star
+	#Ring
+
+OSI Model:
+=============
+7 layers model
+
+#Application
+	Interraces with the application provides network access to apps
+#Presentation
+	Genetric-files the data. Encryption services
+#Session
+	starts and ends sessions
+#Transport
+	How the data is sent.
+#Network
+	Logical addressing, find path to a destination
+#Data link
+	Provides Physical addressing.ensure data is error-free.
+#Physical
+	Acess to the cable. Electrical signals.0 & 1
+
