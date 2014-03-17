@@ -107,6 +107,54 @@ Public Vs Private Addresses
 #private addresses:
 	Usable only on internal networks.
 
+IP Ranges:
+-----------
+class A: 10.0.0.0-10.255.255.255
+class B: 172.16.0.0-172.31.255.255
+class C: 192.168.0.0-192.168.255.255
+
+*Loopback range used for testing: 127.x.x.x
+*Auto-configuration range: 169.254.x.x
+
+----
+TCP and UDP communication:
+==========================
+ tp is reliable.its builds connections between sender and receiver after receiver send ack.
+
+udp is unreliable connectionless.(Telephone line,online game, POSToffice)
+
+*TCP work with Three way handshake.
+
+syn----------------------------->
+<--------------------------------syn-ack
+ack------------------------------>
+
+=======using sequence
+seq 10 -------------------->
+<-------------------------seq 5|ack11
+seq 11|ack6----------------->
+
+TCP windowing...
+----------------
+sending packet in sequence & increasing or decreasing packets sending rate. 
+
+
+1p-------------->
+<-----------------ack2
+2p--------------->
+<-----------------ack3
+3p--------------->
+<---------------ack4 //here 1 packet is lost.so ack send 4 to send it again.
+
+
+
+
+
+
+
+
+
+
 
 
 
