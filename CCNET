@@ -212,6 +212,27 @@ Identifier	  Assigned
 
 http://www.macvendorlookup.com/api/v2/1c:6f:65:8c:1a:1a
 
+Ethernet cables:
+=================
+
+Cat5/5E: Unshielded twisted pair(UTP)
+Max distance: 100 Meters
+Connection: RJ-45
+
+Cat:6 is not compatible on my devices.
+
+Multi-Mode fiber:
+max distance: 275 meters to a few miles.
+connection: varies
+
+Single mode fiber:
+Max distance: Mile to many miles
+connection: varies
+
+*Single mode fiber more expensive than Multi-mode fiber.
+
+
+
 
 
 
