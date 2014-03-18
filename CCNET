@@ -138,7 +138,7 @@ TCP windowing...
 ----------------
 sending packet in sequence & increasing or decreasing packets sending rate. 
 
-
+  
 1p-------------->
 <-----------------ack2
 2p--------------->
@@ -148,10 +148,69 @@ sending packet in sequence & increasing or decreasing packets sending rate.
 
 
 
+Port Numbers:
+============
+well known ports are:0-1023
+
+http:80
+https:443
+ftp:21
+ssh:22
+telnet:23
+so on...
+
+Register port numbers:
+-----
+TCP-0-65535
+UDP-0-65535
+//////////////////////////////////
+
+Welcome to Ethernet
+=====================
+
+The fabric of network: ethernet
+1973:xrox invents ethernet(3Mbps)
+1982: Ethernet standardized between vendors(10Mbps)
+1995: fast ethernet emerges 100MBps
+2000: gigabit etherent 1000Mbps
+2002: 10Gigabit et 10000Mbps
+2007: 100 Gigabit Eth 100000Mbps
+
+sublayer of Datalink layer:
+ Logical Link control layer
+ Media access control layer
+
+ 
+Carrier,sencse,multiple access/collision,detection(CSMA/CD)
+Avoidance(A) => csma/ca
+---------------------------------------------------
+
+Carrier: The network signal
+Sense: the ability to detect
+Multiple access: All devices Have equal access
+COllision: what happends if two devices send at once
+Detection: how the computers handle collisions when they happen
+
+ 
+ Methods of communicating:
+=============================
+#Unicast
+#Broadcast
+#Multicast
 
 
+MAc addresses official explanation:
+---------------------------------
+
+XX:XX:XX:XX:XX:XX
+24Bits <---->24bits
+6Hex char<--->6hex char
+XX:XX:XX	XX:XX:XX
+Orginal unique   Vendor
+Identifier	  Assigned
 
 
+http://www.macvendorlookup.com/api/v2/1c:6f:65:8c:1a:1a
 
 
 
