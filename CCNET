@@ -27,6 +27,8 @@ Network Topologis:
  	#Bus
 	#Star
 	#Ring
+	#Mesh
+	#Tree(Bus+star)
 
 OSI Model:
 =============
@@ -70,6 +72,49 @@ ARP(Address resulation protocol)
 
 IP Address Classes:
 ===================
+The IPv4 address space can be subdivided into 5 classes - Class A, B, C, D and E. Each class consists of a contiguous subset of the overall IPv4 address range.
+
+With a few special exceptions explained further below, the values of the leftmost four bits of an IPv4 address determine its class as follows
+Class	Leftmost bits	Start address	Finish address
+A	0xxx		0.0.0.0		127.255.255.255
+B	10xx		128.0.0.0	191.255.255.255
+C	110x		192.0.0.0	223.255.255.255
+D	1110		224.0.0.0	239.255.255.255
+E	1111		240.0.0.0	255.255.255.255
+
+All Class C addresses, for example, have the leftmost three bits set to '110', but each of the remaining 29 bits may be set to either '0' or '1' independently (as represented by an x in these bit positions):
+
+110xxxxx xxxxxxxx xxxxxxxx xxxxxxxx
+Converting the above to dotted decimal notation, it follows that all Class C addresses fall in the range from 192.0.0.0 through 223.255.255.255.
+IP Address Class E and Limited Broadcast
+The IPv4 networking standard defines Class E addresses as reserved, meaning that they should not be used on IP networks. Some research organizations use Class E addresses for experimental purposes. However, nodes that try to use these addresses on the Internet will be unable to communicate properly.
+A special type of IP address is the limited broadcast address 255.255.255.255. A broadcast involves delivering a message from one sender to many recipients. Senders direct an IP broadcast to 255.255.255.255 to indicate all other nodes on the local network (LAN) should pick up that message. This broadcast is 'limited' in that it does not reach every node on the Internet, only nodes on the LAN.
+
+Technically, IP reserves the entire range of addresses from 255.0.0.0 through 255.255.255.255 for broadcast, and this range should not be considered part of the normal Class E range.
+
+IP Address Class D and Multicast
+The IPv4 networking standard defines Class D addresses as reserved for multicast. Multicast is a mechanism for defining groups of nodes and sending IP messages to that group rather than to every node on the LAN (broadcast) or just one other node (unicast).
+Multicast is mainly used on research networks. As with Class E, Class D addresses should not be used by ordinary nodes on the Internet.
+
+LoopBack address:
+=================
+*Loopback range used for testing: 127.x.x.x
+127.0.0.1 is the loopback address in IP. Loopback is a test mechanism of network adapters. Messages sent to 127.0.0.1 do not get delivered to the network. Instead, the adapter intercepts all loopback messages and returns them to the sending application.
+
+Zero Addresses
+===============
+As with the loopback range, the address range from 0.0.0.0 through 0.255.255.255 should not be considered part of the normal Class A range. 0.x.x.x addresses serve no particular function in IP, but nodes attempting to use them will be unable to communicate properly on the Internet.
+
+
+Private Addresses
+==================
+The IP standard defines specific address ranges within Class A, Class B, and Class C reserved for use by private networks (intranets). The table below lists these reserved ranges of the IP address space.
+Class	Private start address	Private finish address
+A	10.0.0.0	10.255.255.255
+B	172.16.0.0	172.31.255.255
+C	192.168.0.0	192.168.255.255
+Nodes are effectively free to use addresses in the private ranges if they are not connected to the Internet, or if they reside behind firewalls or other gateways that use Network Address Translation (NAT).
+
 Class A:
 --------
 	-First octet of ip address is 1-126
@@ -85,7 +130,7 @@ I.E:
 Class B:
 ---------
   -First octet of ip address is 128-191	
-   -133.14.252.1
+   -172.16.252.1
    -255.255.0.0
 In this class first two octet of ip is networks and rest of hosts.This allows for 16,384 networks and 65,534 hosts per network.
 
@@ -107,16 +152,22 @@ Public Vs Private Addresses
 #private addresses:
 	Usable only on internal networks.
 
-IP Ranges:
------------
-class A: 10.0.0.0-10.255.255.255
-class B: 172.16.0.0-172.31.255.255
-class C: 192.168.0.0-192.168.255.255
-
-*Loopback range used for testing: 127.x.x.x
 *Auto-configuration range: 169.254.x.x
+The Internet Engineering Task Force has reserved the address block 169.254.1.0 through 169.254.254.255[note 2] for link-local addressing in Internet Protocol Version 4. Link-local addresses are assigned to interfaces by host-internal, i.e. stateless, address autoconfiguration when other means of address assignment are not available.
 
-----
+IPv6 Address Types
+IPv6 does not use classes. IPv6 supports the following three IP address types:
+unicast
+multicast
+anycast
+Unicast and multicast messaging in IPv6 are conceptually the same as in IPv4. IPv6 does not support broadcast, but its multicast mechanism accomplishes essentially the same effect. Multicast addresses in IPv6 start with 'FF' (255) just like IPv4 addresses.
+Anycast in IPv6 is a variation on multicast. Whereas multicast delivers messages to all nodes in the multicast group, anycast delivers messages to any one node in the multicast group. Anycast is an advanced networking concept designed to support the failover and load balancing needs of applications.
+
+IPv6 Reserved Addresses
+IPv6 reserves just two special addresses: 0:0:0:0:0:0:0:0 and 0:0:0:0:0:0:0:1. IPv6 uses 0:0:0:0:0:0:0:0 internal to the protocol implementation, so nodes cannot use it for their own communication purposes. IPv6 uses 0:0:0:0:0:0:0:1 as its loopback address, equivalent to 127.0.0.1 in IPv4.
+--------------------------00000000---------------------
+
+
 TCP and UDP communication:
 ==========================
  tp is reliable.its builds connections between sender and receiver after receiver send ack.
@@ -231,11 +282,36 @@ connection: varies
 
 *Single mode fiber more expensive than Multi-mode fiber.
 
+Cabling Standards:
+=================
+because of the way the cable twists,ends should follow standards.
 
+Their are two type of connection mostly use: T568-A,T568-B
 
+T568A+T568A = Straight-thru
+T568B+T568B = Straight-thru
+T568A+T568B = Crossover
 
+12345678 . if not follow standard the signal don't go 100 Meters.
 
+Connection rules: 
+Unlike devices use traight-thru and like device use corossover.
 
+Problem with shared CSMA/CD communication:
+==========================================
+ Hubs:
+     Hubs are like switch bt have diffrence.Hubs has 1 collision domain and broadcast domain.
+
+Collision domain: How may devices can send or receive at a time.
+
+Bridge: 
+its easy the use of hubs. its devide the networks and stop from collision.Ite collects mac address by software.
+
+Switch:
+	Each porst is a collision domain.
+	Full-duplex communication.
+	its faster than bridge.
+Here no more collison.ASIC application speccific intrigated circut that store mac address.
 
 
 
