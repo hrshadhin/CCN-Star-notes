@@ -312,6 +312,39 @@ Switch:
 	Full-duplex communication.
 	its faster than bridge.
 Here no more collison.ASIC application speccific intrigated circut that store mac address.
+==============================
+
+What is the CISCO IOS:
+---------------------
+
+Its a os use to control cisco devices.
+
+-THe internetwork operating system
+-A command-line method of configuring a cisco device
+-Learnn it once,use it many times
+  
+Switch terminal:
+----------------
+
+Mode:
+switchA> user mode(user exec)
+switchA# privileged mode(Privileged exec)
+switch(config)# golobal configuration mode
+
+change mode: user to privilege >enable
+chage to config mode >configure terminal
+
+change to interface config mode
+>interface fasethernet 0/1
+>int fa0/1
+
+exit from mode: 
+end for back to privilage mode
+exit for back one step back mode
+ctl+z for back to privilege mode
 
 
-
+----------------
+Initial setup of a cisco Switch:
+++++++++++++++++++++++++++++++++
+ 
